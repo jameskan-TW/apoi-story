@@ -324,6 +324,7 @@ footer{padding-block:28px;font-family:var(--mono);font-size:12px;color:var(--fai
       <img data-k="tokyo2025b" src="img/tokyo2025b.jpg" alt="Workshop participants at dinner in a Tokyo izakaya, September 2025">
       <img data-k="ly2024b" src="img/ly2024b.jpg" alt="Delegation visiting a party caucus at the Legislative Yuan, Taipei, November 2024">
       <img data-k="taipei2024b" src="img/taipei2024b.jpg" alt="Workshop participants at dinner in Taipei, November 2024">
+      <img data-k="malaysia2025" src="img/malaysia2025.jpg" alt="Citizen Congress Watch presents its pennant during a visit to the Parliament of Malaysia, 2025">
       <div class="cap" id="photoCap"></div>
     </div>
     <div class="vis" id="vis-idea"><div class="lbl">8 September 2023 · Akihiro Ogawa</div><div class="quote" id="quoteText"></div></div>
@@ -437,7 +438,8 @@ footer{padding-block:28px;font-family:var(--mono);font-size:12px;color:var(--fai
     baron2025:['Vitoria · 17 October 2025','Directorio Legislativo’s María Baron becomes an advisor'],
     tokyo2025b:['Tokyo · September 2025','Two days of argument, then dinner'],
     ly2024b:['Taipei · November 2024','Meeting a party caucus at the Legislative Yuan'],
-    taipei2024b:['Taipei · November 2024','Dinner with the delegation']
+    taipei2024b:['Taipei · November 2024','Dinner with the delegation'],
+    malaysia2025:['Kuala Lumpur · 2025','Citizen Congress Watch visits the Parliament of Malaysia']
   };
   const VIS={
     prologue:{dim:true,photos:['copenhagen2022','online2022'],photoShare:1},
@@ -446,7 +448,7 @@ footer{padding-block:28px;font-family:var(--mono);font-size:12px;color:var(--fai
     melbourne:{focus:'melbourne',on:pairs.filter(p=>p[1]==='melbourne').map(p=>p.join('-')),photos:['melbourne2023'],photoShare:.5},
     ndi:{focus:'taipei',on:heroPairs.map(p=>p.join('-')),photos:['online2024','ogp2024','taipei2024','ly2024','ly2024b','taipei2024b','bangkok2024'],photoShare:.85},
     crisis:{focus:'taipei',on:heroPairs.map(p=>p.join('-')),cut:true,overlay:'vis-crisis'},
-    dims:{dim:true,overlay:'vis-dims'},
+    dims:{dim:true,overlay:'vis-dims',photos:['malaysia2025'],photoShare:.4},
     tokyo:{focus:'tokyo',on:pairs.filter(p=>p[1]==='tokyo').map(p=>p.join('-')),overlay:'vis-tokyo',photos:['tokyo2025','tokyo2025b'],photoShare:.55},
     alliance:{dim:true,overlay:'vis-alliance',photos:['ogp2025','baron2025'],photoShare:.5},
     rename:{dim:true,overlay:'vis-rename'},
