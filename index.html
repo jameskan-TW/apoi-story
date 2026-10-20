@@ -321,6 +321,9 @@ footer{padding-block:28px;font-family:var(--mono);font-size:12px;color:var(--fai
       <img data-k="tokyo2025" src="img/tokyo2025.jpg" alt="Group photo of the Tokyo workshop in the Diet members' office building, September 2025">
       <img data-k="ogp2025" src="img/ogp2025.jpg" alt="Panel on open government and civic tech at the OGP Global Summit, Vitoria, October 2025">
       <img data-k="baron2025" src="img/baron2025.jpg" alt="María Baron of Directorio Legislativo receives an advisor appointment from Citizen Congress Watch, OGP Global Summit, October 2025">
+      <img data-k="tokyo2025b" src="img/tokyo2025b.jpg" alt="Workshop participants at dinner in a Tokyo izakaya, September 2025">
+      <img data-k="ly2024b" src="img/ly2024b.jpg" alt="Delegation visiting a party caucus at the Legislative Yuan, Taipei, November 2024">
+      <img data-k="taipei2024b" src="img/taipei2024b.jpg" alt="Workshop participants at dinner in Taipei, November 2024">
       <div class="cap" id="photoCap"></div>
     </div>
     <div class="vis" id="vis-idea"><div class="lbl">8 September 2023 · Akihiro Ogawa</div><div class="quote" id="quoteText"></div></div>
@@ -431,17 +434,20 @@ footer{padding-block:28px;font-family:var(--mono);font-size:12px;color:var(--fai
     bangkok2024:['Bangkok · 26 November 2024','Citizen Congress Watch and WeVis sign a memorandum at the Thai Parliament'],
     tokyo2025:['Tokyo · 18 to 19 September 2025','Fourteen organizations in the Diet members’ office building'],
     ogp2025:['Vitoria · October 2025','Side event at the OGP Global Summit'],
-    baron2025:['Vitoria · 17 October 2025','Directorio Legislativo’s María Baron becomes an advisor']
+    baron2025:['Vitoria · 17 October 2025','Directorio Legislativo’s María Baron becomes an advisor'],
+    tokyo2025b:['Tokyo · September 2025','Two days of argument, then dinner'],
+    ly2024b:['Taipei · November 2024','Meeting a party caucus at the Legislative Yuan'],
+    taipei2024b:['Taipei · November 2024','Dinner with the delegation']
   };
   const VIS={
     prologue:{dim:true,photos:['copenhagen2022','online2022'],photoShare:1},
     taipei:{focus:'taipei',on:['taipei-jakarta','taipei-kl'],photos:['taipei2023','taipei2023b'],photoShare:.6},
     idea:{dim:true,overlay:'vis-idea'},
     melbourne:{focus:'melbourne',on:pairs.filter(p=>p[1]==='melbourne').map(p=>p.join('-')),photos:['melbourne2023'],photoShare:.5},
-    ndi:{focus:'taipei',on:heroPairs.map(p=>p.join('-')),photos:['online2024','ogp2024','taipei2024','ly2024','bangkok2024'],photoShare:.82},
+    ndi:{focus:'taipei',on:heroPairs.map(p=>p.join('-')),photos:['online2024','ogp2024','taipei2024','ly2024','ly2024b','taipei2024b','bangkok2024'],photoShare:.85},
     crisis:{focus:'taipei',on:heroPairs.map(p=>p.join('-')),cut:true,overlay:'vis-crisis'},
     dims:{dim:true,overlay:'vis-dims'},
-    tokyo:{focus:'tokyo',on:pairs.filter(p=>p[1]==='tokyo').map(p=>p.join('-')),overlay:'vis-tokyo',photos:['tokyo2025'],photoShare:.45},
+    tokyo:{focus:'tokyo',on:pairs.filter(p=>p[1]==='tokyo').map(p=>p.join('-')),overlay:'vis-tokyo',photos:['tokyo2025','tokyo2025b'],photoShare:.55},
     alliance:{dim:true,overlay:'vis-alliance',photos:['ogp2025','baron2025'],photoShare:.5},
     rename:{dim:true,overlay:'vis-rename'},
     count:{dim:true,overlay:'vis-count'},
