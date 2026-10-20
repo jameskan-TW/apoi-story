@@ -52,8 +52,8 @@ button{font:inherit;color:inherit}
 .hint span{display:inline-block;width:10px;height:10px;border-right:2px solid var(--accent2);border-bottom:2px solid var(--accent2);transform:rotate(45deg);animation:bob 1.6s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translateY(-2px) rotate(45deg)}50%{transform:translateY(4px) rotate(45deg)}}
 /* hero photo stack: three photos fanned; hover or tap brings one forward */
-.stack{position:relative;aspect-ratio:4/3;max-width:100%;min-width:0}
-.stack figure{position:absolute;inset:6% 4%;margin:0;border-radius:10px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35);border:1px solid var(--line);cursor:pointer;transition:transform .5s cubic-bezier(.2,.7,.2,1),filter .4s;background:var(--bg2)}
+.stack{position:relative;aspect-ratio:3/2;max-width:100%;min-width:0}
+.stack figure{position:absolute;inset:5% 3%;margin:0;border-radius:10px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35);border:1px solid var(--line);cursor:pointer;transition:transform .5s cubic-bezier(.2,.7,.2,1),filter .4s;background:var(--bg2)}
 .stack img{width:100%;height:100%;object-fit:cover;display:block}
 .stack figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 12px;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#f4f5f1;background:linear-gradient(transparent,rgba(10,22,19,.85))}
 .stack figure:nth-child(1){transform:rotate(-7deg) translate(-7%,5%);filter:brightness(.65)}
@@ -64,12 +64,12 @@ button{font:inherit;color:inherit}
 .stack figure:not(.front):hover{filter:brightness(.95)}
 /* photo chapters in the stage */
 .vis.photo{padding:0;justify-content:flex-end;align-items:stretch;text-align:left}
-.vis.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s,transform 8s linear;transform:scale(1.04)}
+.vis.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:var(--bg3);opacity:0;transition:opacity .6s,transform 8s linear;transform:scale(1.02)}
 .vis.photo img.on{opacity:1;transform:scale(1)}
 .vis.photo .cap{position:relative;padding:60px 22px 18px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#f4f5f1;background:linear-gradient(transparent,rgba(10,22,19,.9))}
 .vis.photo .cap b{display:block;font-family:var(--body);font-weight:600;font-size:16px;letter-spacing:0;text-transform:none;margin-top:4px}
 /* story grid */
-.story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start;padding-block:16px 40px}
+.story{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:40px;align-items:start;padding-block:16px 40px}
 .steps{min-width:0}
 .step{min-height:82vh;padding-block:12vh;display:flex;flex-direction:column;justify-content:center;gap:16px;border-bottom:1px solid var(--line)}
 .step>*{opacity:.25;transform:translateY(18px);transition:opacity .5s,transform .6s cubic-bezier(.2,.7,.2,1)}
@@ -94,7 +94,7 @@ blockquote{margin:0;font-family:var(--display);font-size:clamp(22px,2.3vw,32px);
 .dots button span{position:absolute;right:20px;top:50%;transform:translateY(-50%);white-space:nowrap;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--fg);background:var(--bg2);border:1px solid var(--line);padding:3px 8px;border-radius:4px;opacity:0;pointer-events:none;transition:opacity .15s}
 .dots button:hover span,.dots button:focus-visible span{opacity:1}
 /* stage */
-.stage{position:sticky;top:calc(var(--rail) + env(safe-area-inset-top,0px) + 16px);height:calc(100vh - var(--rail) - 32px);min-height:420px;background:var(--bg3);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.stage{position:sticky;top:calc(var(--rail) + env(safe-area-inset-top,0px) + 16px);aspect-ratio:3/2;max-width:100%;max-height:calc(100vh - var(--rail) - 32px);min-height:320px;background:var(--bg3);border:1px solid var(--line);border-radius:14px;overflow:hidden}
 .stage::before{content:"";position:absolute;inset:0;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),var(--glow),transparent 70%);pointer-events:none;transition:opacity .3s}
 .stage .map{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:6%;transition:opacity .6s,filter .6s}
 .stage .map svg{width:100%;height:100%;max-height:100%}
@@ -175,7 +175,7 @@ footer{padding-block:28px;font-family:var(--mono);font-size:12px;color:var(--fai
   .hero{grid-template-columns:1fr;padding-top:calc(var(--rail) + 32px)}
   .stack{max-width:520px;width:100%}
   .story{display:flex;flex-direction:column;gap:0}
-  .stage{order:-1;position:sticky;top:calc(var(--rail) + env(safe-area-inset-top,0px) + 8px);height:40vh;min-height:280px;z-index:5}
+  .stage{order:-1;position:sticky;top:calc(var(--rail) + env(safe-area-inset-top,0px) + 8px);aspect-ratio:3/2;height:auto;max-height:42vh;min-height:240px;z-index:5}
   .rail-year{display:none}.rail-now{top:34px}
   .dots{display:none}
   .step{min-height:0;padding-block:40px 36px}
