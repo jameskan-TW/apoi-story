@@ -469,12 +469,19 @@ footer{padding-block:28px;font-family:var(--mono);font-size:12px;color:var(--fai
   }
   // photos for the current chapter: shown over the first part of the chapter, then they give way to the map
   const photoVis=document.getElementById('vis-photo'),photoCap=document.getElementById('photoCap');
-  let photoKey=null;
+  let photoKey=null,overlayHidden=false;
   function applyPhoto(name,p){
     const v=VIS[name]||{};const list=v.photos||[];
-    if(!list.length||p>=(v.photoShare||.6)){photoVis.classList.remove('on');photoKey=null;return}
+    const ov=v.overlay?document.getElementById(v.overlay):null;
+    if(!list.length||p>=(v.photoShare||.6)){
+      photoVis.classList.remove('on');photoKey=null;
+      // the photo phase is over: bring the chapter's own visual back (and restart its counters once)
+      if(ov&&overlayHidden){ov.classList.add('on');overlayHidden=false;
+        if(v.overlay==='vis-tokyo')ov.querySelectorAll('[data-count]').forEach((e,i)=>{e.textContent='0';setTimeout(()=>countTo(e,+e.dataset.count,1200),i*200)});}
+      return}
     const k=list[Math.min(list.length-1,Math.floor(p/(v.photoShare||.6)*list.length))];
     photoVis.classList.add('on');
+    if(ov){ov.classList.remove('on');overlayHidden=true}
     if(k!==photoKey){photoKey=k;photoVis.querySelectorAll('img').forEach(i=>i.classList.toggle('on',i.dataset.k===k));photoCap.innerHTML=PH[k][0]+'<b>'+PH[k][1]+'</b>'}
   }
   // ---- interactions ----
