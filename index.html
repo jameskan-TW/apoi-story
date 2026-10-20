@@ -245,7 +245,7 @@ footer{padding-block:28px;font-family:var(--mono);font-size:12px;color:var(--fai
     <section class="step" data-vis="melbourne" data-from="2023-11" data-to="2023-12" data-name="Melbourne 2023">
       <div class="eyebrow">November 2023 · Melbourne</div>
       <h2>The first workshop</h2>
-      <p class="one">Seven countries, one scholar and one practitioner each. Latin America's network as the model, and a first draft of governing rules. Keep scrolling to see who flew in.</p>
+      <p class="one">Eight countries, one scholar and one practitioner each, with Argentina advising. Latin America's network as the model, and a first draft of governing rules. Keep scrolling to see who flew in.</p>
       <div class="facts"><span class="fact" data-city="melbourne">University of Melbourne</span><span class="fact amber">Latin American Network for Legislative Transparency</span></div>
     </section>
 
@@ -411,7 +411,7 @@ footer{padding-block:28px;font-family:var(--mono);font-size:12px;color:var(--fai
   ASIA.filter(k=>k!=='taipei').forEach(k=>pairs.push(['taipei',k]));
   ASIA.filter(k=>k!=='tokyo').forEach(k=>pairs.push([k,'tokyo']));
   ASIA.filter(k=>k!=='bangkok').forEach(k=>pairs.push([k,'bangkok']));
-  ['taipei','tokyo','phnompenh','jakarta','colombo','bangkok','seoul','manila'].forEach(k=>pairs.push([k,'melbourne']));
+  ['taipei','tokyo','phnompenh','jakarta','colombo','bangkok','seoul','manila','ulaanbaatar'].forEach(k=>pairs.push([k,'melbourne']));
   const stage=document.getElementById('stage');
   const stageMap=buildMap(document.getElementById('map'),document.getElementById('stageTip'),ASIA.concat(['melbourne']),pairs);
 
@@ -460,7 +460,10 @@ footer{padding-block:28px;font-family:var(--mono);font-size:12px;color:var(--fai
     stage.classList.toggle('dim',!!v.dim);
     const on=new Set(v.on||[]);
     Object.entries(stageMap.lines).forEach(([k,p])=>{p.classList.toggle('cut',!!v.cut&&on.has(k));p.style.strokeDashoffset=on.has(k)?0:p.dataset.len;});
-    Object.entries(stageMap.dots).forEach(([k,d])=>{d.classList.toggle('focus',k===v.focus);stageMap.pulses[k].classList.toggle('on',k===v.focus);});
+    // cities the chapter connects stay bright; the others fade back
+    const touched=new Set();on.forEach(key=>key.split('-').forEach(c=>touched.add(c)));if(v.focus)touched.add(v.focus);
+    Object.entries(stageMap.dots).forEach(([k,d])=>{d.classList.toggle('focus',k===v.focus);stageMap.pulses[k].classList.toggle('on',k===v.focus);
+      const off=on.size>0&&!touched.has(k);d.style.opacity=off?.3:1;const t=d.nextSibling;if(t&&t.tagName==='text')t.style.opacity=off?.35:1;});
     document.querySelectorAll('.vis').forEach(e=>e.classList.toggle('on',e.id===v.overlay));
     if(v.overlay==='vis-idea')typeQuote();
     if(v.overlay==='vis-tokyo'){document.querySelectorAll('#vis-tokyo [data-count]').forEach((e,i)=>{e.textContent='0';setTimeout(()=>countTo(e,+e.dataset.count,1200),i*200)})}
